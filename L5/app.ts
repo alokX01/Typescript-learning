@@ -1,21 +1,22 @@
-let userInput : unknown;
-// let userInput : any;
-let userName : string;
+export {}; // ⭐ very important (file ko module banata hai)
+
+let userInput: unknown;
+let userName: string = ""; // initialized to avoid error
 
 userInput = 10;
 userInput = "Patel";
 
-// userName = userInput;
-if(typeof userInput === "string"){
-    userName = userInput;
+// unknown ko directly assign nahi kar sakte
+if (typeof userInput === "string") {
+  userName = userInput;
 }
+
+console.log(userName);
 
 // never return type
-
-function generateError(message: string, code : number) : never {
-    throw {message: message, statusCode:code}
+function generateError(message: string, code: number): never {
+  throw { message: message, statusCode: code };
 }
-const res = generateError("Internal server error", 500);
-console.log(res);
 
-
+// never function ko variable me store nahi karte
+generateError("Internal server error", 500);
